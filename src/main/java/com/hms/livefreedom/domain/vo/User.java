@@ -1,4 +1,4 @@
-package com.hms.livefreedom.domain.vo.user;
+package com.hms.livefreedom.domain.vo;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package com.hms.livefreedom.infrastructure.redisUtil;
+package com.hms.livefreedom.infrastructure.utils;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
