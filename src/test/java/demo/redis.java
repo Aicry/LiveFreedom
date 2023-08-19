@@ -1,6 +1,6 @@
 package demo;
 
-import com.hms.livefreedom.infrastructure.redisUtil.JedisConnectionFactory;
+import com.hms.livefreedom.infrastructure.utils.config.JedisConnectionFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,7 @@ import redis.clients.jedis.Jedis;
 
 import java.util.Map;
 
-public class demo {
+public class redis {
     private Jedis jedis;
 
     @BeforeEach
