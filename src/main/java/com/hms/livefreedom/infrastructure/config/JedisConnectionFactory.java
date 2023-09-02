@@ -1,4 +1,4 @@
-package com.hms.livefreedom.infrastructure.utils.config;
+package com.hms.livefreedom.infrastructure.config;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -14,7 +14,7 @@ public class JedisConnectionFactory {
         poolConfig.setMaxIdle(10);
         poolConfig.setMinIdle(0);
         poolConfig.setMaxWaitMillis(1000*100);
-        jedisPool = new JedisPool(poolConfig,"192.168.1.105",6379,1000);
+        jedisPool = new JedisPool(poolConfig,"192.168.1.102",6379,1000);
     }
     public static Jedis getJedis() {
         return jedisPool.getResource();

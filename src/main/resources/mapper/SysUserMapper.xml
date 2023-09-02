@@ -7,7 +7,7 @@
     <resultMap id="BaseResultMap" type="com.hms.livefreedom.domain.entity.SysUser">
             <id property="userId" column="user_id" jdbcType="BIGINT"/>
             <result property="deptId" column="dept_id" jdbcType="BIGINT"/>
-            <result property="username" column="username" jdbcType="VARCHAR"/>
+            <result property="userName" column="user_name" jdbcType="VARCHAR"/>
             <result property="nickName" column="nick_name" jdbcType="VARCHAR"/>
             <result property="gender" column="gender" jdbcType="VARCHAR"/>
             <result property="phone" column="phone" jdbcType="VARCHAR"/>
@@ -25,7 +25,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        user_id,dept_id,username,
+        user_id,dept_id,user_name,
         nick_name,gender,phone,
         email,avatar_name,avatar_path,
         password,is_admin,enabled,
