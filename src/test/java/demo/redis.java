@@ -1,6 +1,6 @@
 package demo;
 
-import com.hms.livefreedom.infrastructure.utils.config.JedisConnectionFactory;
+import com.hms.livefreedom.infrastructure.config.JedisConnectionFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

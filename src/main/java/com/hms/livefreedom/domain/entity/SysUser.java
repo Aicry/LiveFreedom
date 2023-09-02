@@ -1,6 +1,5 @@
 package com.hms.livefreedom.domain.entity;
 
-import com.alibaba.excel.annotation.ExcelProperty;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -30,8 +29,7 @@ public class SysUser implements Serializable {
     /**
      * 用户名
      */
-    @ExcelProperty("姓名")
-    private String username;
+    private String userName;
 
     /**
      * 昵称
@@ -41,7 +39,6 @@ public class SysUser implements Serializable {
     /**
      * 性别
      */
-    @ExcelProperty("性别")
     private String gender;
 
     /**
@@ -67,7 +64,6 @@ public class SysUser implements Serializable {
     /**
      * 密码
      */
-    @ExcelProperty("密码")
     private String password;
 
     /**

@@ -7,9 +7,9 @@ import com.hms.livefreedom.mapper.SysUserMapper;
 import org.springframework.stereotype.Service;
 
 /**
-* @author 黄明水
+* @author Hms
 * @description 针对表【sys_user(系统用户)】的数据库操作Service实现
-* @createDate 2023-08-16 21:44:22
+* @createDate 2023-09-02 21:20:28
 */
 @Service
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser>
