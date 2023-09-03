@@ -14,9 +14,12 @@ spring:
         max-idle: 10
         min-idle: 0
         max-wait: 100ms
-
+jwt:
+  secret: eyJpYXQiOjE2OTM3MzE5MjAsImV4cCI6MTY5MzczMTkyMX0
+  expireMs: 10000
 server:
   port: 5210
+
 
 
 
