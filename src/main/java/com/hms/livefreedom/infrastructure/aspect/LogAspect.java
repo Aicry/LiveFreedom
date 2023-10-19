@@ -2,7 +2,7 @@ package com.hms.livefreedom.infrastructure.aspect;
 
 import com.hms.livefreedom.domain.entity.SysLog;
 import com.hms.livefreedom.infrastructure.annotation.Log;
-import com.hms.livefreedom.service.SysLogService;
+import com.hms.livefreedom.domain.service.SysLogService;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;

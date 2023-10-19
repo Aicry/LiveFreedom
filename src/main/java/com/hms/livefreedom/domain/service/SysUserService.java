@@ -1,5 +1,8 @@
-package com.hms.livefreedom.service;
+package com.hms.livefreedom.domain.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.hms.livefreedom.application.query.UserQuery;
+import com.hms.livefreedom.domain.common.ApiResponse;
 import com.hms.livefreedom.domain.entity.SysUser;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -10,4 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface SysUserService extends IService<SysUser> {
 
+    ApiResponse<Page<SysUser>> getUser(UserQuery userQuery);
 }

@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: dev
   datasource:
    driver-class-name: com.mysql.cj.jdbc.Driver
    url: jdbc:mysql://localhost:3306/mylove?serverTimezone=GMT%2b8
@@ -14,9 +16,12 @@ spring:
         max-idle: 10
         min-idle: 0
         max-wait: 100ms
-
+jwt:
+  secret: eyJpYXQiOjE2OTM3MzE5MjAsImV4cCI6MTY5MzczMTkyMX0
+  expireMs: 100000
 server:
   port: 5210
+
 
 
 

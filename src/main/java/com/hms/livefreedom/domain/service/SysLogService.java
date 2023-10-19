@@ -1,4 +1,4 @@
-package com.hms.livefreedom.service;
+package com.hms.livefreedom.domain.service;
 
 import com.hms.livefreedom.domain.entity.SysLog;
 import com.baomidou.mybatisplus.extension.service.IService;

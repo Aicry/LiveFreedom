@@ -1,8 +1,8 @@
-package com.hms.livefreedom.service.impl;
+package com.hms.livefreedom.domain.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.hms.livefreedom.domain.entity.SysLog;
-import com.hms.livefreedom.service.SysLogService;
+import com.hms.livefreedom.domain.service.SysLogService;
 import com.hms.livefreedom.mapper.SysLogMapper;
 import org.springframework.stereotype.Service;
 
