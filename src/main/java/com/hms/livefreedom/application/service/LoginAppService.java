@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date 2023/9/3 15:57
  * @Description TODO
  */
-@CrossOrigin
 @RestController
-@RequestMapping("/login")
 public class LoginAppService implements LoginAPI {
 
     @Autowired

@@ -8,8 +8,9 @@ import com.hms.livefreedom.infrastructure.annotation.Log;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-@RequestMapping("/user")
+@RequestMapping(value = "/user",method = RequestMethod.POST)
 public interface UserAPI {
 
     @PostMapping("/getUser")

@@ -9,7 +9,6 @@ import com.hms.livefreedom.domain.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin
 @RestController
 public class UserAppService implements UserAPI {
 

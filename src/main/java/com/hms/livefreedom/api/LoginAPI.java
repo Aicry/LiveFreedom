@@ -3,9 +3,7 @@ package com.hms.livefreedom.api;
 import com.hms.livefreedom.domain.common.ApiResponse;
 import com.hms.livefreedom.domain.entity.SysUser;
 import com.hms.livefreedom.infrastructure.annotation.Log;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 /**
    * @ClassName LoginAPI
@@ -13,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
    * @Date 2023/9/3 15:42
    * @Description TODO
    */
-@RequestMapping("/login")
+@RequestMapping(value = "/login" , method = RequestMethod.POST)
 public interface LoginAPI {
 
     @PostMapping("/login1")
