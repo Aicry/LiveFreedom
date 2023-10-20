@@ -4,10 +4,13 @@ import com.hms.livefreedom.api.LoginAPI;
 import com.hms.livefreedom.domain.common.ApiResponse;
 import com.hms.livefreedom.domain.entity.SysUser;
 import com.hms.livefreedom.infrastructure.utils.JwtUtil;
+import com.hms.livefreedom.infrastructure.utils.MqProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
 
 /**
  * @ClassName LoginAppService
