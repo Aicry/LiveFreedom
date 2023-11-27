@@ -13,13 +13,13 @@ import java.util.List;
 public class excelWriter {
     public static void main(String[] args) {
         List<SysUser> sysUsers = excelDemo3();
-        EasyExcel.write("C:\\Users\\黄明水\\Desktop\\导入测试.xlsx")
+        EasyExcel.write("C:\\Users\\hms\\Desktop\\导入测试.xlsx")
                     .head(SysUser.class).excelType(ExcelTypeEnum.XLSX)
         .sheet("Data_copy").doWrite(sysUsers);
     }
     private static List<SysUser> excelDemo3() {
         List<SysUser> list = new LinkedList<>();
-        ExcelReaderSheetBuilder excelReaderSheetBuilder = EasyExcel.read("C:\\Users\\黄明水\\Desktop\\导入测试.xlsx")
+        ExcelReaderSheetBuilder excelReaderSheetBuilder = EasyExcel.read("C:\\Users\\hms\\Desktop\\导入测试.xlsx")
                 .head(SysUser.class)
                 .sheet()
                 .registerReadListener(new AnalysisEventListener<SysUser>() {

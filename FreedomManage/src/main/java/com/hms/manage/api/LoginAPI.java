@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
    * @Date 2023/9/3 15:42
    * @Description TODO
    */
-@RequestMapping(value = "/login" , method = RequestMethod.POST)
+@RequestMapping(value = "/freedom/login" , method = RequestMethod.POST)
 public interface LoginAPI {
 
     @PostMapping("/login1")

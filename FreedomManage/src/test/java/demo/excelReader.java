@@ -21,7 +21,7 @@ public class excelReader {
 
     private static void excelDemo3() {
         List<SysUser> list = new LinkedList<>();
-        ExcelReaderSheetBuilder excelReaderSheetBuilder = EasyExcel.read("C:\\Users\\黄明水\\Desktop\\导入测试.xlsx")
+        ExcelReaderSheetBuilder excelReaderSheetBuilder = EasyExcel.read("C:\\Users\\hms\\Desktop\\导入测试.xlsx")
                 .head(SysUser.class)
                 .sheet()
                 .registerReadListener(new AnalysisEventListener<SysUser>() {
@@ -44,7 +44,7 @@ public class excelReader {
 
     private static void excelDemo2() {
         List<Map<Integer, String>> list = new LinkedList<>();
-        ExcelReaderSheetBuilder excelReaderSheetBuilder = EasyExcel.read("C:\\Users\\黄明水\\Desktop\\导入测试.xlsx")
+        ExcelReaderSheetBuilder excelReaderSheetBuilder = EasyExcel.read("C:\\Users\\hms\\Desktop\\导入测试.xlsx")
                 .sheet()
                 .registerReadListener(new AnalysisEventListener<Map<Integer, String>>() {
                     @Override
@@ -70,7 +70,7 @@ public class excelReader {
 
     private static void excelDemo1() {
         ExcelReaderBuilder readerBuilder = EasyExcel.read();
-        readerBuilder.file("C:\\Users\\黄明水\\Desktop\\导入测试.xlsx");
+        readerBuilder.file("C:\\Users\\hms\\Desktop\\导入测试.xlsx");
         readerBuilder.sheet("Data");
         readerBuilder.autoCloseStream(true);
         readerBuilder.excelType(ExcelTypeEnum.XLSX);
