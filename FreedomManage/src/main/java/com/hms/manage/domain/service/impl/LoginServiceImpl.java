@@ -1,14 +1,19 @@
 package com.hms.manage.domain.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.hms.manage.domain.common.ApiResponse;
 import com.hms.manage.domain.entity.SysUser;
 import com.hms.manage.domain.service.LoginService;
 import com.hms.manage.infrastructure.config.JedisConnectionFactory;
 import com.hms.manage.infrastructure.exception.BizException;
 import com.hms.manage.infrastructure.utils.JwtUtil;
 import com.hms.manage.mapper.SysUserMapper;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import redis.clients.jedis.Jedis;
+
 import redis.clients.jedis.params.SetParams;
 
 /**
@@ -29,12 +34,13 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public String pwdLogin(SysUser sysUser) {
         SysUser user = sysUserMapper.selectById(sysUser.getUserId());
-        if (user != null && user.getPassword().equals(sysUser.getPassword())) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        if (passwordEncoder.matches(user.getPassword(), sysUser.getPassword())) {
             String jwtToken = jwtUtil.generateJwtToken(sysUser);
-            JedisConnectionFactory.set(jwtToken,sysUser.getUserId().toString(),new SetParams().px(60000L));
+            JedisConnectionFactory.set(jwtToken, user.getUserId().toString(), new SetParams().px(60000L));
             return jwtToken;
-        } else {
-            throw new BizException("账号或密码错误");
         }
+
+        throw new BizException("账号或密码错误");
     }
 }

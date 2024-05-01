@@ -1,0 +1,1 @@
+String.valueOf(num).toCharArray();
