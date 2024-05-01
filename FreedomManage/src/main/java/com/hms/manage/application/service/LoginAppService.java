@@ -3,7 +3,7 @@ package com.hms.manage.application.service;
 import com.hms.manage.api.LoginAPI;
 import com.hms.manage.domain.common.ApiResponse;
 import com.hms.manage.domain.entity.SysUser;
-import com.hms.manage.infrastructure.utils.JwtUtil;
+import com.hms.manage.domain.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,12 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoginAppService implements LoginAPI {
 
     @Autowired
-    private JwtUtil jwtUtil;
+    private LoginService loginService;
 
     @Override
     public ApiResponse<String> login(SysUser sysUser) {
-
-        String s = jwtUtil.generateJwtToken(sysUser);
-        return ApiResponse.success(s);
+        return ApiResponse.success(loginService.pwdLogin(sysUser));
     }
 }

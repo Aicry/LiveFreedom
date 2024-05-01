@@ -2,16 +2,17 @@ package com.hms.manage.infrastructure.filter;
 
 import com.alibaba.fastjson2.JSONObject;
 import com.hms.manage.domain.common.ApiResponse;
+import com.hms.manage.infrastructure.config.JedisConnectionFactory;
 import com.hms.manage.infrastructure.enums.ResponseCode;
-import com.hms.manage.infrastructure.utils.JwtUtil;
+import jakarta.servlet.*;
+import jakarta.servlet.annotation.WebFilter;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 
 /**
@@ -25,8 +26,8 @@ import java.io.IOException;
 @Slf4j
 public class LoginFilter implements Filter {
 
-    @Autowired
-    private JwtUtil jwtUtil;
+    @Value("${freedom.frontUrl}")
+    private String frontUrl;
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
@@ -35,10 +36,9 @@ public class LoginFilter implements Filter {
         //1.获取资源请求的路径,强制转换
         HttpServletRequest request = (HttpServletRequest) req;
         String rString = request.getRequestURI();
-        String token = request.getHeader("Authorization");
         HttpServletResponse response = (HttpServletResponse) res;
         response.setContentType("text/html;charset=UTF-8");
-        response.setHeader("Access-Control-Allow-Origin", "http://localhost:8081");
+        response.setHeader("Access-Control-Allow-Origin", frontUrl);
         response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
         response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
         response.setHeader("Access-Control-Allow-Credentials", "true");
@@ -52,9 +52,11 @@ public class LoginFilter implements Filter {
             chain.doFilter(req, response);
             return;
         }
-        //3.当访问其他资源，就判断是否登录
-        boolean validateJwtToken = jwtUtil.validateJwtToken(token);
-        if (validateJwtToken) {
+        // 3.当访问其他资源，就判断是否登录
+        // boolean validateJwtToken = jwtUtil.validateJwtToken(token);
+
+        String token = request.getHeader("Authorization");
+        if (JedisConnectionFactory.getJedis(token) != null) {
             chain.doFilter(req, response);
         } else {
             log.info("未登录");
