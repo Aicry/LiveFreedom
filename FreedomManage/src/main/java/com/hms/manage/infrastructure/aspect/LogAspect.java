@@ -1,8 +1,8 @@
 package com.hms.manage.infrastructure.aspect;
 
-import com.hms.manage.domain.entity.SysLog;
+import com.hms.manage.domain.user.entity.FreedomLog;
+import com.hms.manage.domain.user.service.SysLogService;
 import com.hms.manage.infrastructure.annotation.Log;
-import com.hms.manage.domain.service.SysLogService;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -35,7 +35,7 @@ public class LogAspect {
         Log annotation = method.getAnnotation(Log.class);
         InetAddress local = InetAddress.getLocalHost();
         if(annotation != null) {
-            SysLog sysLog = new SysLog();
+            FreedomLog sysLog = new FreedomLog();
             SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             sysLog.setLogType(annotation.value());
             sysLog.setMethod(method.getName());
@@ -43,7 +43,6 @@ public class LogAspect {
             sysLog.setAddress(local.getHostName());
             sysLog.setRequestIp(local.getHostAddress());
             sysLog.setCreateTime(new Date());
-            service.save(sysLog);
         }
         return point.proceed();
     }

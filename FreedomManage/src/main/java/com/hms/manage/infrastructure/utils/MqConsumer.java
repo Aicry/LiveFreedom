@@ -37,7 +37,7 @@ public class MqConsumer {
     public void onMessage(Message message, Channel channel) throws Exception {
         //	1. 收到消息以后进行业务端消费处理
         System.err.println("-----------------------");
-        System.err.println("消费消息:" + message.getPayload());
+        System.err.println(STR."消费消息:\{message.getPayload()}");
 
         //  2. 处理成功之后 获取deliveryTag 并进行手工的ACK操作, 因为我们配置文件里配置的是 手工签收
         //	spring.rabbitmq.listener.simple.acknowledge-mode=manual

@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class ApiResponse<T> {
-    private final String code;
+    private final int code;
     private final String message;
     private final T data;
 
@@ -17,7 +17,7 @@ public class ApiResponse<T> {
         this.data = data;
     }
 
-    public ApiResponse(String code, String message) {
+    public ApiResponse(int code, String message) {
         this.code = code;
         this.message = message;
         this.data = null;
@@ -28,10 +28,10 @@ public class ApiResponse<T> {
     }
 
     public static <T> ApiResponse<T> failed(T data) {
-        return new ApiResponse<T>(ResponseCode.INTERNAL_SERVER_ERROR, null); // data为null
+        return new ApiResponse<T>(ResponseCode.INTERNAL_SERVER_ERROR, null);
     }
 
-    public static <T> ApiResponse<T> failed(String code, String message) {
-        return new ApiResponse<T>(code, message); // data为null
+    public static <T> ApiResponse<T> failed(int code, String message) {
+        return new ApiResponse<T>(code, message);
     }
 }

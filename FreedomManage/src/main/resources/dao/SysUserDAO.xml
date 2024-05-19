@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hms.manage.infrastructure.dao.SysUserDAO">
+
+    <resultMap id="BaseResultMap" type="com.hms.manage.domain.user.entity.FreedomUser">
+            <id property="userId" column="user_id" jdbcType="BIGINT"/>
+            <result property="userName" column="user_name" jdbcType="VARCHAR"/>
+            <result property="nickName" column="nick_name" jdbcType="VARCHAR"/>
+            <result property="gender" column="gender" jdbcType="VARCHAR"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="email" column="email" jdbcType="VARCHAR"/>
+            <result property="avatarName" column="avatar_name" jdbcType="VARCHAR"/>
+            <result property="avatarPath" column="avatar_path" jdbcType="VARCHAR"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
+            <result property="pwdResetTime" column="pwd_reset_time" jdbcType="TIMESTAMP"/>
+            <result property="isAdmin" column="is_admin" jdbcType="BIT"/>
+            <result property="enableFlag" column="enable_flag" jdbcType="BIGINT"/>
+            <result property="renterId" column="renter_id" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        user_id,user_name,
+        nick_name,gender,phone,
+        email,avatar_name,avatar_path,
+        password,pwd_reset_time,is_admin,enable_flag,renter_Id
+    </sql>
+
+    <insert id="addUser">
+        INSERT INTO freedom.freedom_user_t
+        (<include refid="Base_Column_List"/>)
+        VALUES(
+        #{param.userId},
+        #{param.userName},
+        #{param.nickName},
+        #{param.gender},
+        #{param.phone},
+        #{param.email},
+        #{param.avatarName},
+        #{param.avatarPath},
+        #{param.password},
+        #{param.pwdResetTime},
+        #{param.isAdmin},
+        #{param.enableFlag},
+        #{param.renterId}
+        )
+    </insert>
+
+    <select id="getUserByQuery" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from freedom_user_t
+        where
+        1=1
+    </select>
+</mapper>

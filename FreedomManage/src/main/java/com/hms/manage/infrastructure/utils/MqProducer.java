@@ -32,7 +32,8 @@ public class MqProducer {
          */
         @Override
         public void confirm(CorrelationData correlationData, boolean ack, String cause) {
-            System.err.println("消息ACK结果:" + ack + ", correlationData: " + correlationData.getId());
+            assert correlationData != null;
+            System.err.println(STR."消息ACK结果:\{ack}, correlationData: \{correlationData.getId()}");
         }
     };
 
@@ -58,7 +59,7 @@ public class MqProducer {
             @Override
             public org.springframework.amqp.core.Message postProcessMessage(org.springframework.amqp.core.Message message)
                     throws AmqpException {
-                System.err.println("---> post to do: " + message);
+                System.err.println(STR."---> post to do: \{message}");
                 return message;
             }
         };

@@ -5,26 +5,26 @@ import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.event.AnalysisEventListener;
 import com.alibaba.excel.read.builder.ExcelReaderSheetBuilder;
 import com.alibaba.excel.support.ExcelTypeEnum;
-import com.hms.manage.domain.entity.SysUser;
+import com.hms.manage.domain.user.entity.FreedomUser;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class excelWriter {
     public static void main(String[] args) {
-        List<SysUser> sysUsers = excelDemo3();
+        List<FreedomUser> sysUsers = excelDemo3();
         EasyExcel.write("C:\\Users\\hms\\Desktop\\导入测试.xlsx")
-                    .head(SysUser.class).excelType(ExcelTypeEnum.XLSX)
+                    .head(FreedomUser.class).excelType(ExcelTypeEnum.XLSX)
         .sheet("Data_copy").doWrite(sysUsers);
     }
-    private static List<SysUser> excelDemo3() {
-        List<SysUser> list = new LinkedList<>();
+    private static List<FreedomUser> excelDemo3() {
+        List<FreedomUser> list = new LinkedList<>();
         ExcelReaderSheetBuilder excelReaderSheetBuilder = EasyExcel.read("C:\\Users\\hms\\Desktop\\导入测试.xlsx")
-                .head(SysUser.class)
+                .head(FreedomUser.class)
                 .sheet()
-                .registerReadListener(new AnalysisEventListener<SysUser>() {
+                .registerReadListener(new AnalysisEventListener<FreedomUser>() {
                     @Override
-                    public void invoke(SysUser sysUser, AnalysisContext analysisContext) {
+                    public void invoke(FreedomUser sysUser, AnalysisContext analysisContext) {
                         list.add(sysUser);
                     }
 

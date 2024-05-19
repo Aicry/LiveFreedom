@@ -7,7 +7,7 @@ import com.alibaba.excel.event.AnalysisEventListener;
 import com.alibaba.excel.read.builder.ExcelReaderBuilder;
 import com.alibaba.excel.read.builder.ExcelReaderSheetBuilder;
 import com.alibaba.excel.support.ExcelTypeEnum;
-import com.hms.manage.domain.entity.SysUser;
+import com.hms.manage.domain.user.entity.FreedomUser;
 
 import java.util.*;
 
@@ -20,13 +20,13 @@ public class excelReader {
     }
 
     private static void excelDemo3() {
-        List<SysUser> list = new LinkedList<>();
+        List<FreedomUser> list = new LinkedList<>();
         ExcelReaderSheetBuilder excelReaderSheetBuilder = EasyExcel.read("C:\\Users\\hms\\Desktop\\导入测试.xlsx")
-                .head(SysUser.class)
+                .head(FreedomUser.class)
                 .sheet()
-                .registerReadListener(new AnalysisEventListener<SysUser>() {
+                .registerReadListener(new AnalysisEventListener<FreedomUser>() {
                     @Override
-                    public void invoke(SysUser sysUser, AnalysisContext analysisContext) {
+                    public void invoke(FreedomUser sysUser, AnalysisContext analysisContext) {
                         list.add(sysUser);
                     }
 
@@ -37,7 +37,7 @@ public class excelReader {
                 });
         excelReaderSheetBuilder.doRead();
         // 一行读完操作
-        for (SysUser sysUser : list) {
+        for (FreedomUser sysUser : list) {
             System.out.println(sysUser);
         }
     }

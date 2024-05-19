@@ -7,10 +7,10 @@ public class BizException extends RuntimeException {
 
     private static final long serialVersionUID = 1L;
 
-    public String code;
+    public int code;
 
-    public String getCode() {
-        return code == null ? "400" : code;
+    public int getCode() {
+        return code == 0 ? 400 : code;
     }
 
     public BizException() {
@@ -27,7 +27,7 @@ public class BizException extends RuntimeException {
     }
 
     public BizException(ResponseCode responseCode, Throwable cause) {
-        super(responseCode.getCode(), cause);
+        super(String.valueOf(responseCode.getCode()), cause);
     }
 
     @Override
