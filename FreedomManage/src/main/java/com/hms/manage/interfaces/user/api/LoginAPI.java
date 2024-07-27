@@ -1,7 +1,7 @@
 package com.hms.manage.interfaces.user.api;
 
 import com.hms.manage.domain.common.ApiResponse;
-import com.hms.manage.domain.user.entity.FreedomUser;
+import com.hms.manage.domain.user.entity.FreedomUserT;
 import com.hms.manage.infrastructure.annotation.Log;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,5 +16,5 @@ public interface LoginAPI {
 
     @PostMapping("/login1")
     @Log("登录")
-    ApiResponse<String> login(@RequestBody FreedomUser sysUser);
+    ApiResponse<String> login(@RequestBody FreedomUserT sysUser);
 }
