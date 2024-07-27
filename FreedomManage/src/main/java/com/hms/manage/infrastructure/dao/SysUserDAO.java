@@ -1,6 +1,6 @@
 package com.hms.manage.infrastructure.dao;
 
-import com.hms.manage.domain.user.entity.FreedomUser;
+import com.hms.manage.domain.user.entity.FreedomUserT;
 import com.hms.manage.domain.user.query.UserQuery;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -14,7 +14,7 @@ import java.util.List;
 @Mapper
 public interface SysUserDAO {
 
-    List<FreedomUser> getUserByQuery(UserQuery userQuery);
+    List<FreedomUserT> getUserByQuery(UserQuery userQuery);
 
-    Integer addUser(@Param("param") FreedomUser freedomUser);
+    Integer addUser(@Param("param") FreedomUserT freedomUser);
 }

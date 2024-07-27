@@ -1,10 +1,10 @@
 package com.hms.manage.application.service.user;
 
-import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import com.hms.manage.domain.user.service.UserDomainService;
 import com.hms.manage.interfaces.user.api.UserAPI;
 import com.hms.manage.domain.common.ApiResponse;
-import com.hms.manage.domain.user.entity.FreedomUser;
+import com.hms.manage.domain.user.entity.FreedomUserT;
 import com.hms.manage.interfaces.user.converter.FreedomUserDTOToEntityConverter;
 import com.hms.manage.interfaces.user.converter.FreedomUserQueryDTOToQueryConverter;
 import com.hms.manage.interfaces.user.dto.FreedomUserDTO;
@@ -26,7 +26,7 @@ public class UserAppService implements UserAPI {
     }
 
     @Override
-    public ApiResponse<Page<FreedomUser>> getUser(FreedomUserQueryDTO userDTO) {
+    public ApiResponse<PageInfo<FreedomUserT>> getUser(FreedomUserQueryDTO userDTO) {
         return ApiResponse.success(userDomainService.getUser(
                 FreedomUserQueryDTOToQueryConverter.INSTANCE.converter(userDTO)
         ));

@@ -1,6 +1,6 @@
 package com.hms.manage.infrastructure.repository;
 
-import com.hms.manage.domain.user.entity.FreedomUser;
+import com.hms.manage.domain.user.entity.FreedomUserT;
 import com.hms.manage.domain.user.query.UserQuery;
 import com.hms.manage.domain.user.repository.SysUserRepository;
 import com.hms.manage.infrastructure.dao.SysUserDAO;
@@ -20,12 +20,12 @@ public class SysUserRDBRepository implements SysUserRepository {
     private SysUserDAO sysUserDAO;
 
     @Override
-    public List<FreedomUser> getUser(UserQuery userQuery) {
+    public List<FreedomUserT> getUser(UserQuery userQuery) {
         return sysUserDAO.getUserByQuery(userQuery);
     }
 
     @Override
-    public Integer addUser(FreedomUser freedomUser) {
+    public Integer addUser(FreedomUserT freedomUser) {
         return sysUserDAO.addUser(freedomUser);
     }
 }

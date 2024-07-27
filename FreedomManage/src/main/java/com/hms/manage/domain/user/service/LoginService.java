@@ -1,6 +1,6 @@
 package com.hms.manage.domain.user.service;
 
-import com.hms.manage.domain.user.entity.FreedomUser;
+import com.hms.manage.domain.user.entity.FreedomUserT;
 import com.hms.manage.domain.user.query.UserQuery;
 import com.hms.manage.infrastructure.config.JedisConnectionFactory;
 import com.hms.manage.infrastructure.exception.BizException;
@@ -28,8 +28,8 @@ public class LoginService{
     @Resource
     private SysUserDAO sysUserDao;
 
-    public String pwdLogin(FreedomUser sysUser) {
-        FreedomUser user = sysUserDao.getUserByQuery(new UserQuery()).getFirst();
+    public String pwdLogin(FreedomUserT sysUser) {
+        FreedomUserT user = sysUserDao.getUserByQuery(new UserQuery()).getFirst();
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         if (passwordEncoder.matches(user.getPassword(), sysUser.getPassword())) {
             String jwtToken = jwtUtil.generateJwtToken(sysUser);

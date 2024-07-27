@@ -1,6 +1,6 @@
 package com.hms.manage.domain.user.repository;
 
-import com.hms.manage.domain.user.entity.FreedomUser;
+import com.hms.manage.domain.user.entity.FreedomUserT;
 import com.hms.manage.domain.user.query.UserQuery;
 
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
  * @Date 2024/05/18 18:25
  **/
 public interface SysUserRepository {
-    List<FreedomUser> getUser(UserQuery userQuery);
+    List<FreedomUserT> getUser(UserQuery userQuery);
 
-    Integer addUser(FreedomUser freedomUser);
+    Integer addUser(FreedomUserT freedomUser);
 }

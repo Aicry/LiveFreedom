@@ -1,6 +1,6 @@
 package com.hms.manage.infrastructure.utils;
 
-import com.hms.manage.domain.user.entity.FreedomUser;
+import com.hms.manage.domain.user.entity.FreedomUserT;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +26,7 @@ public class JwtUtil {
     @Value("${jwt.expireMs}")
     private int jwtExpirationMs;
 
-    public String generateJwtToken(FreedomUser sysUser) {
+    public String generateJwtToken(FreedomUserT sysUser) {
         return generateTokenFromUsername(sysUser.getUserName());
     }
 

@@ -1,6 +1,5 @@
 package com.hms.manage.domain.user.entity;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import com.hms.manage.domain.common.BaseEntity;
@@ -9,7 +8,7 @@ import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class FreedomUser extends BaseEntity implements Serializable {
+public class FreedomUserT extends BaseEntity {
     /**
      * ID
      */

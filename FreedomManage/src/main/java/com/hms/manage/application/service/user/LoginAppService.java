@@ -1,9 +1,9 @@
 package com.hms.manage.application.service.user;
 
+import com.hms.manage.domain.user.entity.FreedomUserT;
 import com.hms.manage.domain.user.service.LoginService;
 import com.hms.manage.interfaces.user.api.LoginAPI;
 import com.hms.manage.domain.common.ApiResponse;
-import com.hms.manage.domain.user.entity.FreedomUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +20,7 @@ public class LoginAppService implements LoginAPI {
     private LoginService loginService;
 
     @Override
-    public ApiResponse<String> login(FreedomUser sysUser) {
+    public ApiResponse<String> login(FreedomUserT sysUser) {
         return ApiResponse.success(loginService.pwdLogin(sysUser));
     }
 }

@@ -1,13 +1,15 @@
 package com.hms.manage.domain.user.service;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.hms.manage.domain.user.entity.FreedomUser;
+import com.github.pagehelper.PageInfo;
+import com.hms.manage.domain.user.entity.FreedomUserT;
 import com.hms.manage.domain.user.query.UserQuery;
 import com.hms.manage.domain.user.repository.SysUserRepository;
 import com.hms.manage.infrastructure.config.SnowflakeGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
 * @author Hms
@@ -23,14 +25,14 @@ public class UserDomainService {
     @Autowired
     private SnowflakeGenerator snowflake;
 
-    public Page<FreedomUser> getUser(UserQuery userQuery) {
+    public PageInfo<FreedomUserT> getUser(UserQuery userQuery) {
         PageHelper.startPage(userQuery.getPageNumber(), userQuery.getPageSize());
-        Page<FreedomUser> list = (Page<FreedomUser>) sysUserRepository.getUser(userQuery);
-        System.out.println(STR."listCnt:\{list.getTotal()}");
-        return list;
+        List<FreedomUserT> list =  sysUserRepository.getUser(userQuery);
+        PageInfo<FreedomUserT> page = new PageInfo<>(list, userQuery.getPageNumber());
+        return page;
     }
 
-    public Integer addUser(FreedomUser freedomUser) {
+    public Integer addUser(FreedomUserT freedomUser) {
         freedomUser.setUserId(snowflake.next());
         return sysUserRepository.addUser(freedomUser);
     }

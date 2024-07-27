@@ -16,7 +16,7 @@
         <module>FreedomGateway</module>
         <module>FreedomEureka</module>
         <module>FreedomManage</module>
-        <module>DesignPatterns</module>
+        <module>Basic</module>
         <module>Algorithm</module>
     </modules>
 

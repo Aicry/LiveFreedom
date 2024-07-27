@@ -13,13 +13,13 @@ public class BaseEntity {
 
     private String enableFlag;
 
-    private int createBy;
+    private Long createBy;
 
-    private int updateBy;
+    private Long updateBy;
 
     private Date createTime;
 
     private Date updateTime;
 
-    private int renterId;
+    private Long renterId;
 }

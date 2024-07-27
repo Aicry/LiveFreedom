@@ -1,6 +1,6 @@
 package com.hms.manage.interfaces.user.converter;
 
-import com.hms.manage.domain.user.entity.FreedomUser;
+import com.hms.manage.domain.user.entity.FreedomUserT;
 import com.hms.manage.interfaces.user.dto.FreedomUserDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -14,5 +14,5 @@ public interface FreedomUserDTOToEntityConverter {
 
     FreedomUserDTOToEntityConverter INSTANCE = Mappers.getMapper(FreedomUserDTOToEntityConverter.class);
 
-    FreedomUser converter(FreedomUserDTO userDTO);
+    FreedomUserT converter(FreedomUserDTO userDTO);
 }
