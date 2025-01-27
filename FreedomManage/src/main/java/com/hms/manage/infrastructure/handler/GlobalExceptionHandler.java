@@ -75,7 +75,7 @@ public class GlobalExceptionHandler {
      * @param e
      * @return
      */
-    @ExceptionHandler(value = Exception.class)
+    //@ExceptionHandler(value = Exception.class)
     @ResponseBody
     public ApiResponse<String> exceptionHandler(HttpServletRequest req, Exception e) {
         log.error(e.getMessage());

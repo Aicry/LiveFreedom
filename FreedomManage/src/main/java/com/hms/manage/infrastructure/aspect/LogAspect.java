@@ -1,7 +1,7 @@
 package com.hms.manage.infrastructure.aspect;
 
 import com.hms.manage.domain.user.entity.FreedomLog;
-import com.hms.manage.domain.user.service.SysLogService;
+import com.hms.manage.domain.user.service.LogDomainService;
 import com.hms.manage.infrastructure.annotation.Log;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -22,7 +22,7 @@ import java.util.Date;
 public class LogAspect {
 
     @Autowired
-    private SysLogService service;
+    private LogDomainService service;
 
     @Pointcut("@annotation(com.hms.manage.infrastructure.annotation.Log)")
     public void logPointCut() {

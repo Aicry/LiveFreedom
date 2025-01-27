@@ -8,7 +8,7 @@ import lombok.Data;
  **/
 @Data
 public class BaseQueryDTO {
-    private int pageSize;
+    private int current;
 
-    private int pageNumber;
+    private int size;
 }

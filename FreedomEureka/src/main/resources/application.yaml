@@ -9,3 +9,6 @@ eureka:
       defaultZone: "http://localhost:8761/eureka"
     register-with-eureka: false
     fetch-registry: false
+spring:
+  main:
+    allow-circular-references: true

@@ -1,7 +1,7 @@
 package com.hms.manage.interfaces.user.api;
 
 import com.hms.manage.domain.common.ApiResponse;
-import com.hms.manage.domain.user.entity.FreedomUserT;
+import com.hms.manage.domain.user.entity.User;
 import com.hms.manage.infrastructure.annotation.Log;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
    * @Date 2023/9/3 15:42
    * @Description TODO
    */
-@RequestMapping(value = "/login")
+@RequestMapping(value = "/v1")
 public interface LoginAPI {
 
-    @PostMapping("/login1")
+    @PostMapping("/login")
     @Log("登录")
-    ApiResponse<String> login(@RequestBody FreedomUserT sysUser);
+    ApiResponse<User> login(@RequestBody User sysUser);
 }

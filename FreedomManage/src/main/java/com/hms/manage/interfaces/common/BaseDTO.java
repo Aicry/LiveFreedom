@@ -11,6 +11,8 @@ import java.util.Date;
 @Data
 public class BaseDTO {
 
+    private Long id;
+
     private String enableFlag;
 
     private int createBy;

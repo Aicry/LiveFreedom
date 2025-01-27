@@ -1,12 +1,12 @@
 package demo;
 
-import com.hms.manage.domain.user.entity.FreedomUserT;
+import com.hms.manage.domain.user.entity.User;
 
 import java.lang.reflect.Field;
 
 public class invoke {
     public static void main(String[] args) {
-        Class<?> userClass = FreedomUserT.class;
+        Class<?> userClass = User.class;
         Field[] fields = userClass.getFields();
 
     }

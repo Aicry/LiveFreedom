@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hms.manage.infrastructure.dao.RoleMapper">
+
+    <!-- Result Map for mapping query result to Java object -->
+    <resultMap id="BaseResultMap" type="com.hms.manage.domain.user.entity.Role">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="role_name" property="roleName" jdbcType="VARCHAR"/>
+        <result column="is_disable" property="isDisable" jdbcType="TINYINT"/>
+        <result column="enable_flag" property="enableFlag" jdbcType="CHAR"/>
+        <result column="delete_flag" property="deleteFlag" jdbcType="CHAR"/>
+        <result column="create_by" property="createBy" jdbcType="VARCHAR"/>
+        <result column="update_by" property="updateBy" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="renter_id" property="renterId" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <!-- SQL Insert -->
+    <insert id="insert" parameterType="com.hms.manage.domain.user.entity.Role">
+        INSERT INTO freedom_role_t
+        (role_name, is_disable, enable_flag, delete_flag, create_by, update_by, create_time, update_time, renter_id)
+        VALUES
+            (#{roleName}, #{isDisable}, #{enableFlag}, #{deleteFlag}, #{createBy}, #{updateBy}, #{createTime}, #{updateTime}, #{renterId})
+    </insert>
+
+    <!-- SQL Update -->
+    <update id="update" parameterType="com.hms.manage.domain.user.entity.Role">
+        UPDATE freedom_role_t
+        SET
+            role_name = #{roleName},
+            is_disable = #{isDisable},
+            enable_flag = #{enableFlag},
+            delete_flag = #{deleteFlag},
+            create_by = #{createBy},
+            update_by = #{updateBy},
+            create_time = #{createTime},
+            update_time = #{updateTime},
+            renter_id = #{renterId}
+        WHERE id = #{id}
+    </update>
+
+    <!-- SQL Delete -->
+    <delete id="delete" parameterType="int">
+        DELETE FROM freedom_role_t WHERE id = #{id}
+    </delete>
+
+    <!-- SQL Select by ID -->
+    <select id="selectById" resultMap="BaseResultMap" parameterType="int">
+        SELECT * FROM freedom_role_t WHERE id = #{id}
+    </select>
+
+    <!-- SQL Select All -->
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT * FROM freedom_role_t
+    </select>
+
+</mapper>

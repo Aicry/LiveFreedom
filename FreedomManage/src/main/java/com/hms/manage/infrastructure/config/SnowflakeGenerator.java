@@ -11,17 +11,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class SnowflakeGenerator implements Generator<Long> {
 
-    private final Snowflake snowflake;
-
-    public SnowflakeGenerator() {
-        this(0L, 0L);
-    }
-
-    public SnowflakeGenerator(long workerId, long dataCenterId) {
-        this.snowflake = new Snowflake(workerId, dataCenterId);
-    }
+    private static final Snowflake snowflake = new Snowflake(0, 0);
 
     public Long next() {
-        return this.snowflake.nextId();
+        return snowflake.nextId();
     }
 }

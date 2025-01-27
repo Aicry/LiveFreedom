@@ -1,6 +1,7 @@
 package com.hms.algorithm.daily.sort;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * @ClassName Sort
@@ -38,8 +39,13 @@ public class Sort {
         arr[j] = temp;
     }
 
+
     public static void main(String[] args) {
         int[] arr = {3, 2, 3, 1, 2, 4, 5, 5, 6};
+
+        int[][] dd = {{1,2},{3,1}};
+        Arrays.sort(dd, Comparator.comparingInt(o -> o[1]));
+        System.out.println(dd.toString());
         quickSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }

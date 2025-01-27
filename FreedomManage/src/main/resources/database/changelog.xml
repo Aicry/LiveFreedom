@@ -6,7 +6,7 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
 
 
-        <include file="classpath:/database/ddl/freedom_user_t.sql"/>
+<!--        <include file="classpath:/database/ddl/freedom_user_t.sql"/>-->
 
 
 

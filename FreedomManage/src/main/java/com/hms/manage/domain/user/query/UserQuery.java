@@ -13,7 +13,7 @@ public class UserQuery extends BaseQuery{
 
     private List<String> userNameList;
 
-    private Long userId;
+    private String userId;
 
     private String userName;
 }

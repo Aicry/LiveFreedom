@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 public class BaseQuery {
 
-    private int pageSize;
+    private int current;
 
-    private int pageNumber;
+    private int size;
 }
